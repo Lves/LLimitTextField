@@ -15,6 +15,7 @@ class FullWidthTextField: UITextField {
             self.cursorView.backgroundColor = cursorColor
         }
     }
+    public var isCursorViewHiden:Bool = false
     private var cursorView:UIView = {
         let view = UIView(frame: CGRect.zero)
         view.backgroundColor = UIColor.yellow
@@ -34,10 +35,15 @@ class FullWidthTextField: UITextField {
         setupUI()
     }
     private func setupUI()  {
-        let fontSize:CGFloat = font?.pointSize ?? 0
-        let y = (bounds.size.height-fontSize)/2.0
-        cursorView.frame = CGRect(x: 0, y: y, width: 2, height: fontSize)
-        cursorView.alpha = 0;
+        if isCursorViewHiden {
+            cursorView.isHidden = true
+           
+        }else{
+            let fontSize:CGFloat = font?.pointSize ?? 0
+            let y = (bounds.size.height-fontSize)/2.0
+            cursorView.frame = CGRect(x: 0, y: y, width: 2, height: fontSize)
+            cursorView.alpha = 0;
+        }
     }
     
     public func startShake()  {
@@ -64,7 +70,11 @@ class FullWidthTextField: UITextField {
                 
                 let style = NSMutableParagraphStyle()
                 style.alignment = textAlignment
-                (contentString[nextIndex] as NSString).draw(in: nextRect,
+                var nextChar = contentString[nextIndex]
+                if self.isSecureTextEntry {
+                    nextChar = "●"
+                }
+                (nextChar as NSString).draw(in: nextRect,
                                                             withAttributes: [.font:UIFont.systemFont(ofSize: fontSize),
                                                                              .foregroundColor:textColor ?? UIColor.black,
                                                                              .paragraphStyle:style])

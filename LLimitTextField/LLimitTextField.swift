@@ -12,6 +12,7 @@ enum TextFieldUnderlineType{
     case none
     case one
     case spaced
+    case grid
 }
 
 protocol LLimitTextFieldDelegate: class {
@@ -52,6 +53,11 @@ class LLimitTextField: UIView {
             controlTextField.keyboardType = keyboardType
         }
     }
+    public var isCursorViewHiden:Bool = false {
+        didSet{
+            justShowTextField.isCursorViewHiden = isCursorViewHiden
+        }
+    }
     public var cursorColor:UIColor = UIColor.black {
         didSet{
             justShowTextField.cursorColor = cursorColor
@@ -69,7 +75,6 @@ class LLimitTextField: UIView {
     }
     public var isSecureTextEntry:Bool = false{
         didSet{
-            controlTextField.isSecureTextEntry = true
             justShowTextField.isSecureTextEntry = true
         }
     }
@@ -96,8 +101,8 @@ class LLimitTextField: UIView {
         textField.borderStyle = .none
         return textField
     }()
-    private let controlTextField:LCustonTextField = {
-        let textField = LCustonTextField(frame: CGRect.zero)
+    private let controlTextField:UITextField = {
+        let textField = UITextField(frame: CGRect.zero)
         textField.borderStyle = .none
         textField.textColor = UIColor.clear
         textField.tintColor = UIColor.clear
@@ -122,12 +127,10 @@ class LLimitTextField: UIView {
         controlTextField.delegate = self
     }
     private func setupUI() {
-        
         createUnderline()
     }
     
     private func createUnderline(){
-        
         var textFieldFrame = bounds
         if underlineType == .one {
             textFieldFrame.h -= (bottomLineHeight + bottomLineTopMargin)
@@ -151,18 +154,32 @@ class LLimitTextField: UIView {
                     layerArray.append(bottomLayer)
                 }
             }
+        }else if underlineType == .grid{
+            self.layer.borderColor = self.underlineColor.cgColor
+            self.layer.borderWidth = bottomLineHeight
+            if layerArray.count == 0{
+                let gridStepWidth = bounds.size.width/CGFloat(_maxLength)
+                for index in 0..<_maxLength-1{
+                    let sepLineLayer = CALayer()
+                    sepLineLayer.backgroundColor = underlineColor.cgColor
+                    sepLineLayer.frame = CGRect(x:gridStepWidth*CGFloat(index+1) , y: 0, width: 1, height: textFieldFrame.h)
+                    layer.addSublayer(sepLineLayer)
+                    layerArray.append(sepLineLayer)
+                }
+            }
         }
         controlTextField.frame = textFieldFrame
         justShowTextField.frame = textFieldFrame
-        
     }
 }
 
 extension LLimitTextField:UITextFieldDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         self.controlTextField.isHidden = true
         self.justShowTextField.startShake()
-        return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.controlTextField.isHidden = false
@@ -184,14 +201,7 @@ extension LLimitTextField:UITextFieldDelegate{
         }
         let next = ((textField.text ?? "") as NSString).replacingCharacters(in: changeRange, with: string)
         self.justShowTextField.text = next
+        self.justShowTextField.layoutIfNeeded()
         return true
-    }
-}
-
-
-class LCustonTextField: UITextField {
-    override func drawText(in rect: CGRect) {
-        super.drawText(in: rect)
-//        print(text ?? "空")
     }
 }

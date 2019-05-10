@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var limitTextField: LLimitTextField!
     @IBOutlet weak var spaceTextField: LLimitTextField!
-    @IBOutlet weak var passwordTextField: LLimitTextField!
+    @IBOutlet weak var gridTextField: LLimitTextField!
+    @IBOutlet weak var gridPasswordTextField: LLimitTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Limit TextField"
@@ -29,8 +31,6 @@ class ViewController: UIViewController {
         limitTextField.underlineColor = UIColor(hex6: 0x2CF0F9)
         limitTextField.limitLength = 16
         
-        
-        
         spaceTextField.textColor = UIColor.black
         spaceTextField.limitLength = 4
         spaceTextField.font = UIFont.systemFont(ofSize: 25)
@@ -42,19 +42,31 @@ class ViewController: UIViewController {
         spaceTextField.underlineColor = UIColor(hex6: 0x2CF0F9)
         
         
-
-        passwordTextField.textColor = UIColor.black
-        passwordTextField.isSecureTextEntry = true
-        passwordTextField.limitLength = 6
-        passwordTextField.insertSpaceStep = 6
-        passwordTextField.font = UIFont.systemFont(ofSize: 25)
-        passwordTextField.cursorColor = UIColor.black
-        passwordTextField.keyboardType = .numberPad
-        passwordTextField.textAlignment = .center
-        passwordTextField.delegate = self
-        passwordTextField.underlineType = .one
-        passwordTextField.underlineColor = UIColor(hex6: 0x2CF0F9)
-
+        gridTextField.textColor = UIColor.black
+        gridTextField.limitLength = 6
+        gridTextField.font = UIFont.systemFont(ofSize: 25)
+        gridTextField.cursorColor = UIColor.black
+        gridTextField.keyboardType = .numberPad
+        gridTextField.textAlignment = .center
+        gridTextField.delegate = self
+        gridTextField.underlineType = .grid
+        gridTextField.underlineColor = UIColor(hex6: 0x2CF0F9)
+        
+        
+        gridPasswordTextField.textColor = UIColor.black
+        gridPasswordTextField.isSecureTextEntry = true
+        gridPasswordTextField.limitLength = 6
+        gridPasswordTextField.insertSpaceStep = 6
+        gridPasswordTextField.font = UIFont.systemFont(ofSize: 25)
+        gridPasswordTextField.cursorColor = UIColor.black
+        gridPasswordTextField.keyboardType = .numberPad
+        gridPasswordTextField.textAlignment = .center
+        gridPasswordTextField.delegate = self
+        gridPasswordTextField.underlineType = .grid
+        gridPasswordTextField.underlineColor = UIColor.gray
+        gridPasswordTextField.isCursorViewHiden = true
+    
+        
         
     }
     

@@ -26,52 +26,49 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cwn-pm-nbg" customClass="LLimitTextField" customModule="LLimitTextFieldDemo" customModuleProvider="target">
-                                <rect key="frame" x="44" y="174" width="287" height="50"/>
+                                <rect key="frame" x="44" y="144" width="287" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6hW-SC-GY9"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7x-0q-KZ1" customClass="LLimitTextField" customModule="LLimitTextFieldDemo" customModuleProvider="target">
-                                <rect key="frame" x="44" y="254" width="287" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEd-nd-kh4" customClass="LLimitTextField" customModule="LLimitTextFieldDemo" customModuleProvider="target">
+                                <rect key="frame" x="44" y="204" width="287" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="FJw-Fg-3Rh"/>
+                                    <constraint firstAttribute="height" constant="50" id="9jZ-eu-OR7"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dx-yw-IyF">
-                                <rect key="frame" x="137.5" y="328" width="100" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoS-Y7-LVS" customClass="LLimitTextField" customModule="LLimitTextFieldDemo" customModuleProvider="target">
+                                <rect key="frame" x="44" y="264" width="287" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="8Wr-HD-meN"/>
+                                    <constraint firstAttribute="height" constant="50" id="g5a-dB-nJj"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3Eo-Ae-669"/>
-                                </connections>
-                            </textField>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qRP-HL-41U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="6zE-dk-V9X"/>
+                            <constraint firstItem="JoS-Y7-LVS" firstAttribute="top" secondItem="QEd-nd-kh4" secondAttribute="bottom" constant="10" id="C4L-MV-kO0"/>
+                            <constraint firstItem="QEd-nd-kh4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="GuS-nA-z6S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qRP-HL-41U" secondAttribute="trailing" constant="44" id="HD3-3G-u41"/>
-                            <constraint firstItem="Q7x-0q-KZ1" firstAttribute="top" secondItem="Cwn-pm-nbg" secondAttribute="bottom" constant="30" id="HgA-mp-vwy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q7x-0q-KZ1" secondAttribute="trailing" constant="44" id="JDw-4e-MaC"/>
-                            <constraint firstItem="2dx-yw-IyF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L0a-OM-U2L"/>
-                            <constraint firstItem="Q7x-0q-KZ1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="L67-EH-YLp"/>
                             <constraint firstItem="qRP-HL-41U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="YCc-jS-UTH"/>
-                            <constraint firstItem="2dx-yw-IyF" firstAttribute="top" secondItem="Q7x-0q-KZ1" secondAttribute="bottom" constant="24" id="fdn-Ek-QJE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JoS-Y7-LVS" secondAttribute="trailing" constant="44" id="Zhk-2W-hwo"/>
+                            <constraint firstItem="QEd-nd-kh4" firstAttribute="top" secondItem="Cwn-pm-nbg" secondAttribute="bottom" constant="10" id="bhs-5Q-qLF"/>
                             <constraint firstItem="Cwn-pm-nbg" firstAttribute="leading" secondItem="qRP-HL-41U" secondAttribute="leading" id="foa-hh-GvJ"/>
                             <constraint firstItem="Cwn-pm-nbg" firstAttribute="trailing" secondItem="qRP-HL-41U" secondAttribute="trailing" id="isa-NJ-CPt"/>
-                            <constraint firstItem="Cwn-pm-nbg" firstAttribute="top" secondItem="qRP-HL-41U" secondAttribute="bottom" constant="40" id="nUK-IX-3B5"/>
+                            <constraint firstItem="Cwn-pm-nbg" firstAttribute="top" secondItem="qRP-HL-41U" secondAttribute="bottom" constant="10" id="nUK-IX-3B5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QEd-nd-kh4" secondAttribute="trailing" constant="44" id="p76-wk-Eux"/>
+                            <constraint firstItem="JoS-Y7-LVS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="yE0-eD-fvy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="bbL-Jo-BQh"/>
                     <connections>
+                        <outlet property="gridPasswordTextField" destination="JoS-Y7-LVS" id="Ufp-ii-KkV"/>
+                        <outlet property="gridTextField" destination="QEd-nd-kh4" id="y72-ni-oLN"/>
                         <outlet property="limitTextField" destination="qRP-HL-41U" id="A2X-zG-3ND"/>
-                        <outlet property="passwordTextField" destination="Q7x-0q-KZ1" id="xA7-Jm-cvx"/>
                         <outlet property="spaceTextField" destination="Cwn-pm-nbg" id="yli-pV-aww"/>
                     </connections>
                 </viewController>
