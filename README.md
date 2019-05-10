@@ -4,9 +4,15 @@ The specified length of the string fills the entire TextField（指定长度的�
 
 ![Demo](https://github.com/Lves/LLimitTextField/blob/master/img/show_demo.png)
 
-### Instructions
+### Requirements
+Swift 4.2+
+Xcode 10.1+
+### Installation
+Cocoapods is developing, you can drag the `LLimitTextField` folder into your project.
 
-Code instance （代码实例）
+
+### Usage（代码实例）
+
 
 ```
 //if auto insert space
