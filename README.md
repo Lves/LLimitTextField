@@ -4,7 +4,7 @@ The specified length of the string fills the entire TextField（指定长度的�
 
 ![Demo](https://github.com/Lves/LLimitTextField/blob/master/img/show_demo.png)
 
-##Instructions
+### Instructions
 
 Code instance （代码实例）
 
@@ -29,7 +29,7 @@ limitTextField.underlineColor = UIColor.cyan
 limitTextField.limitLength = 16
 ```
 
-##UnderLine/SeperatorLine Type(分割线类型)
+### UnderLine/SeperatorLine Type(分割线类型)
 
 ```
 enum TextFieldUnderlineType{
