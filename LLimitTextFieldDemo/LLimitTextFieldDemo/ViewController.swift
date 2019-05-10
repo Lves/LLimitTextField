@@ -8,21 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController,LLimitTextFieldDelegate {
+class ViewController: UIViewController {
 
     
     @IBOutlet weak var limitTextField: LLimitTextField!
     @IBOutlet weak var spaceTextField: LLimitTextField!
-    
+    @IBOutlet weak var passwordTextField: LLimitTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Limit TextField"
         
         limitTextField.isAutoInsertSpace = true
         limitTextField.insertSpaceStep = 4
-        limitTextField.textColor = UIColor.white
+        limitTextField.textColor = UIColor.black
         limitTextField.font = UIFont.systemFont(ofSize: 25)
-        limitTextField.cursorColor = UIColor.white
+        limitTextField.cursorColor = UIColor.black
         limitTextField.keyboardType = .numberPad
         limitTextField.delegate = self
         limitTextField.underlineType = .one
@@ -31,10 +31,10 @@ class ViewController: UIViewController,LLimitTextFieldDelegate {
         
         
         
-        spaceTextField.textColor = UIColor.white
+        spaceTextField.textColor = UIColor.black
         spaceTextField.limitLength = 4
         spaceTextField.font = UIFont.systemFont(ofSize: 25)
-        spaceTextField.cursorColor = UIColor.white
+        spaceTextField.cursorColor = UIColor.black
         spaceTextField.keyboardType = .numberPad
         spaceTextField.textAlignment = .center
         spaceTextField.delegate = self
@@ -42,23 +42,38 @@ class ViewController: UIViewController,LLimitTextFieldDelegate {
         spaceTextField.underlineColor = UIColor(hex6: 0x2CF0F9)
         
         
-        /*
-        
-        test 
-        
-        
-        
-        
-        */
-        
-        
+
+        passwordTextField.textColor = UIColor.black
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.limitLength = 6
+        passwordTextField.insertSpaceStep = 6
+        passwordTextField.font = UIFont.systemFont(ofSize: 25)
+        passwordTextField.cursorColor = UIColor.black
+        passwordTextField.keyboardType = .numberPad
+        passwordTextField.textAlignment = .center
+        passwordTextField.delegate = self
+        passwordTextField.underlineType = .one
+        passwordTextField.underlineColor = UIColor(hex6: 0x2CF0F9)
+
         
     }
+    
+
+
+}
+
+extension ViewController: LLimitTextFieldDelegate{
     func inputViewDidEndEditing(_ inputView: LLimitTextField) {
         print(inputView.text ?? "")
     }
+    
+}
 
-
+extension ViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        return true
+    }
 }
 
 
@@ -71,3 +86,4 @@ extension UIColor{
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
+

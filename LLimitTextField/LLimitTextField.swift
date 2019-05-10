@@ -67,6 +67,12 @@ class LLimitTextField: UIView {
             justShowTextField.textAlignment = textAlignment
         }
     }
+    public var isSecureTextEntry:Bool = false{
+        didSet{
+            controlTextField.isSecureTextEntry = true
+            justShowTextField.isSecureTextEntry = true
+        }
+    }
     //set isAutoInsertSpace befor limitLength
     public var isAutoInsertSpace:Bool = false
     public var insertSpaceStep:Int = 4
@@ -90,8 +96,8 @@ class LLimitTextField: UIView {
         textField.borderStyle = .none
         return textField
     }()
-    private let controlTextField:UITextField = {
-        let textField = UITextField(frame: CGRect.zero)
+    private let controlTextField:LCustonTextField = {
+        let textField = LCustonTextField(frame: CGRect.zero)
         textField.borderStyle = .none
         textField.textColor = UIColor.clear
         textField.tintColor = UIColor.clear
@@ -179,5 +185,13 @@ extension LLimitTextField:UITextFieldDelegate{
         let next = ((textField.text ?? "") as NSString).replacingCharacters(in: changeRange, with: string)
         self.justShowTextField.text = next
         return true
+    }
+}
+
+
+class LCustonTextField: UITextField {
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect)
+//        print(text ?? "空")
     }
 }

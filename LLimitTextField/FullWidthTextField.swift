@@ -12,7 +12,7 @@ class FullWidthTextField: UITextField {
     public var limitLength:UInt = 19
     public var cursorColor:UIColor = UIColor.black {
         didSet{
-            self.tintColor = cursorColor
+            self.cursorView.backgroundColor = cursorColor
         }
     }
     private var cursorView:UIView = {
